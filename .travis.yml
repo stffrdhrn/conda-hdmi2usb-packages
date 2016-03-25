@@ -23,8 +23,9 @@ env:
   - PACKAGE=binutils-lm32-elf
   - PACKAGE=binutils-or1k-elf
   - PACKAGE=gcc-lm32-elf
-  - PACKAGE=sdcc
+  - PACKAGE=llvm-or1k-elf
   - PACKAGE=openocd
+  - PACKAGE=sdcc
 
 script:
   - python ./.travis-output.py output.log conda build $PACKAGE
