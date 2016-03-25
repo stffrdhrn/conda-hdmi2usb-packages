@@ -19,6 +19,7 @@ addons:
     - g++-4.8-multilib
 
 install:
+  - ls -l $(which gcc)
   - gcc --version
   - pip install pexpect
   - ./get-conda.sh
