@@ -5,12 +5,21 @@ python:
 sudo: false
 addons:
   apt:
+    sources:
+    - ubuntu-toolchain-r-test
     packages:
     - texinfo
     - libftdi-dev
     - libusb-1.0-0-dev
+    - gcc-4.8
+    - g++-4.8
+    - gcc-multilib
+    - g++-multilib
+    - gcc-4.8-multilib
+    - g++-4.8-multilib
 
 install:
+  - gcc --version
   - pip install pexpect
   - ./get-conda.sh
   - export PATH="$PATH:$HOME/conda/bin"
