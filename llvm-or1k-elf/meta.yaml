@@ -1,5 +1,5 @@
 package:
-  name: llvm-or1k
+  name: llvm-or1k-elf
   version: "3.5.0"
 
 source:
