@@ -25,6 +25,7 @@ The MiSoC system supports both a `lm32` and `or1k` "soft-CPU" implementations.
 
  - [ ] binutils - (Based off 2.24)
  - [ ] gcc - ???
+ - [ ] llvm / clang - (Current version: 3.5.0)
 
 Following instructions at http://openrisc.io/newlib/building.html
 
