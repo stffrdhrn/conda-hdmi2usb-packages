@@ -1,0 +1,63 @@
+platform:
+  - x86
+  - x64
+
+configuration: Release
+
+environment:
+  BASE_PATH: c:\tmp\really-really-really-really-really-really-really-really-really-really-really-really-really-long-path
+
+  matrix:
+  # lm32 toolchain
+  #- PACKAG: binutils-lm32-elf
+  #- PACKAGE: gcc-lm32-elf
+  #- PACKAGE: gdb-lm32-elf
+  # or1k toolchain
+  #- PACKAGE: binutils-or1k-elf
+  #- PACKAGE: gcc-or1k-elf
+  #- PACKAGE: gdb-or1k-elf
+  # fx2 toolchain
+  #- PACKAGE: sdcc
+  # tools
+  - PACKAGE: openocd
+  #- PACKAGE: verilator
+
+install:
+  - ps: |
+      echo "base path is $env:BASE_PATH"
+      echo "============================="
+      echo "git fixing"
+      echo "-----------------------------"
+      echo "git submodule update"
+      git submodule update --recursive --init
+      echo "git submodule foreach"
+      git submodule foreach git submodule update --recursive --init
+      echo "============================="
+      echo "Installing conda"
+      echo "-----------------------------"
+      echo "mkdir $env:BASE_PATH"
+      mkdir -Force "$env:BASE_PATH"
+      $CONDA_PATH="$env:BASE_PATH" + "\conda"
+      echo "set conda path $CONDA_PATH"
+      echo "Getting conda"
+      .\get-conda.ps1 "$CONDA_PATH"
+      $env:Path = $env:Path + ";$CONDA_PATH\Scripts\"
+      echo "============================="
+      echo "Setting up conda"
+      echo "-----------------------------"
+      echo "Setting conda config"
+      conda config --set always_yes yes --set changeps1 no
+      echo "Adding timvideos channel to conda"
+      conda config --add channels timvideos
+
+build_script:
+  - ps: |
+      echo "============================="
+      echo "conda build $env:PACKAGE"
+      echo "-----------------------------"
+      conda build $env:PACKAGE
+
+test: off
+
+matrix:
+  fast_finish: true

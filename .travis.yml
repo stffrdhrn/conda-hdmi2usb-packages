@@ -10,6 +10,12 @@ addons:
     - libftdi-dev
     - libusb-1.0-0-dev
 
+# Don't do Travis for windows branches
+branches:
+  except:
+    - /^win.*$/
+
+
 install:
   - git submodule update --recursive --init
   - git submodule foreach git submodule update --recursive --init
