@@ -24,6 +24,7 @@ environment:
 
 install:
   - ps: |
+      iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-http-proxy.ps1'))
       echo "base path is $env:BASE_PATH"
       echo "============================="
       echo "git fixing"
