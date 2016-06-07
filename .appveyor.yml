@@ -22,6 +22,9 @@ environment:
   - PACKAGE: openocd
   #- PACKAGE: verilator
 
+# MSYS2 (C:\msys64)
+# C:\MinGW
+
 install:
   - ps: |
       iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-http-proxy.ps1'))
