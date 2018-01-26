@@ -27,6 +27,7 @@ addons:
     - texinfo
     - libncurses5-dev
     - libncursesw5-dev
+    - help2man
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
