@@ -1,0 +1,43 @@
+From f702c69af4c3c62f2d4560fd67ac91d4ea215643 Mon Sep 17 00:00:00 2001
+From: Tim 'mithro' Ansell <me@mith.ro>
+Date: Fri, 26 Jan 2018 15:16:26 +1100
+Subject: [PATCH] Adding lm32 architecture.
+
+---
+ config/arch/lm32.in        | 11 +++++++++++
+ scripts/build/arch/lm32.sh |  5 +++++
+ 2 files changed, 16 insertions(+)
+ create mode 100644 config/arch/lm32.in
+ create mode 100644 scripts/build/arch/lm32.sh
+
+diff --git a/config/arch/lm32.in b/config/arch/lm32.in
+new file mode 100644
+index 00000000..5e2b2f17
+--- /dev/null
++++ b/config/arch/lm32.in
+@@ -0,0 +1,11 @@
++# LatticeMico32 specific config options
++
++## no-package
++## depends on EXPERIMENTAL
++##
++## select ARCH_SUPPORTS_32
++## select ARCH_DEFAULT_32
++## select ARCH_SUPPORTS_WITH_ABI
++## select ARCH_SUPPORTS_WITH_ARCH
++
++## help The LatticeMico32 architecture.
+diff --git a/scripts/build/arch/lm32.sh b/scripts/build/arch/lm32.sh
+new file mode 100644
+index 00000000..6bb58342
+--- /dev/null
++++ b/scripts/build/arch/lm32.sh
+@@ -0,0 +1,5 @@
++# Compute LM32-specific values
++
++CT_DoArchTupleValues() {
++    CT_TARGET_ARCH="lm${CT_ARCH_BITNESS}"
++}
+-- 
+2.16.0.rc1.238.g530d649a79-goog
+
