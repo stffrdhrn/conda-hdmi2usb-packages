@@ -22,6 +22,7 @@ source:
   patches:
    - no-lto.patch
    - 0001-Adding-lm32-architecture.patch
+   - 0002-Adding-lm32-multilib-example.patch
 
 build:
   number: 1
@@ -33,8 +34,8 @@ requirements:
     - bison
     - flex
     - git
-    # - gperf
-    # - help2man
+    - gperf
+    - help2man
     - libtool
     - ncurses
     # - texinfo
