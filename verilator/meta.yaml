@@ -23,12 +23,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     - bison
     - flex
   run:
-    - {{ compiler('cxx') }}
   {% for package in resolved_packages('host') %}
     - {{ package }}
   {% endfor %}
